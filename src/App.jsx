@@ -879,7 +879,7 @@ function App() {
                 </a>
 
                 <a
-                  href="warmly.netlify.app/#"
+                  href="https://warmlywebsite.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
                   className="github-link"
