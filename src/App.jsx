@@ -1517,7 +1517,7 @@ function App() {
           </p>
 
           <p>
-            Built with React <span>✦</span>
+            Built with Love <span>❤︎</span>
           </p>
 
         </div>
