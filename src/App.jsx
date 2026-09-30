@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./App.css";
+import profile from "./assets/profile.jpeg";
 
 function App() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -338,7 +339,7 @@ function App() {
           >
 
             <div className="about-avatar">
-  <img src="/src/assets/profile.jpeg" alt="Nittya Tapre" />
+  <img src={profile}  alt="Nittya Tapre" />
 </div>
 
             <div className="about-mini-info">
