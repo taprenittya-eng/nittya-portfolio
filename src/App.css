@@ -1467,3 +1467,47 @@ body {
   object-fit: cover;
   display: block;
 }
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-buttons .btn-primary {
+  background: #8b6fc9;
+  color: white;
+  border: 1px solid #8b6fc9;
+}
+
+.hero-buttons .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 111, 201, 0.25);
+}
+
+.hero-buttons .btn-secondary {
+  background: white;
+  color: #6f58a8;
+  border: 1px solid #d8ccef;
+}
+
+.hero-buttons .btn-secondary:hover {
+  transform: translateY(-3px);
+  background: #f7f3ff;
+  border-color: #b9a6df;
+}

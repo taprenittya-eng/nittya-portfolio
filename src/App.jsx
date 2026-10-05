@@ -165,7 +165,7 @@ function App() {
            </a>
 
             <a
-              href="C:\Users\varsh\OneDrive\Desktop\DOCUMENTS[NITTYA]\personal_web\my-portfolio\public\webdev_nittya_resume.pdf"
+              href="\webdev_nittya_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
