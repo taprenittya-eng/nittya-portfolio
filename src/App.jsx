@@ -160,25 +160,22 @@ function App() {
           </p>
 
           <div className="hero-buttons">
+           <a href="#projects" className="btn btn-primary">
+            Explore My Work →
+           </a>
 
-            <motion.a
-              href="#projects"
-              className="primary-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href="C:\Users\varsh\OneDrive\Desktop\DOCUMENTS[NITTYA]\personal_web\my-portfolio\public\webdev_nittya_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
             >
-              Explore My Work →
-            </motion.a>
-
-            <motion.a
-              href="#contact"
-              className="secondary-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+              View My Resume ↗
+            </a>
+          
+            <a href="#contact" className="btn btn-secondary">
               Let's Connect
-            </motion.a>
-
+            </a>
           </div>
 
         </motion.div>
