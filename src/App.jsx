@@ -160,20 +160,71 @@ function App() {
           </p>
 
           <div className="hero-buttons">
-           <a href="#projects" className="btn btn-primary">
+           <a
+            href="#projects"
+            className="btn btn-primary"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "13px 22px",
+              borderRadius: "10px",
+              textDecoration: "none",
+              fontSize: "14px",
+              fontWeight: "600",
+              color: "#ffffff",
+              background: "#8b6fc9",
+              border: "1px solid #8b6fc9",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+           >
             Explore My Work →
            </a>
 
             <a
-              href="\webdev_nittya_resume.pdf"
+              href="/webdev_nittya_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary"
+              className="btn btn-secondary resume-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "13px 22px",
+                borderRadius: "10px",
+                textDecoration: "none",
+                fontSize: "14px",
+                fontWeight: "600",
+                color: "#6f58a8",
+                background: "#ffffff",
+                border: "1px solid #d8ccef",
+                cursor: "pointer",
+                transition: "all 0.3s ease"
+              }}
             >
               View My Resume ↗
             </a>
           
-            <a href="#contact" className="btn btn-secondary">
+            <a
+              href="#contact"
+              className="btn btn-secondary"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "13px 22px",
+                borderRadius: "10px",
+                textDecoration: "none",
+                fontSize: "14px",
+                fontWeight: "600",
+                color: "#6f58a8",
+                background: "#ffffff",
+                border: "1px solid #d8ccef",
+                cursor: "pointer",
+                transition: "all 0.3s ease"
+              }}
+            >
               Let's Connect
             </a>
           </div>
