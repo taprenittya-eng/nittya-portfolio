@@ -6,6 +6,7 @@ import profile from "./assets/profile.jpeg";
 function App() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showFlowerShower, setShowFlowerShower] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,15 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  // One-time flower shower on page load / refresh
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFlowerShower(false);
+    }, 3800);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const closeMenu = () => {
@@ -232,72 +242,33 @@ function App() {
         </motion.div>
 
 
-        {/* Hero Visual */}
+        {/* Flower Shower */}
+        {showFlowerShower && (
+          <div className="flower-shower" aria-hidden="true">
+            {Array.from({ length: 42 }, (_, index) => {
+              const flowers = ["✿", "❀", "✽", "✾", "❁"];
+              const flower = flowers[index % flowers.length];
 
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.2
-          }}
-        >
-
-          <div className="glass-card">
-
-            <motion.div
-              className="floating-icon icon-one"
-              animate={{
-                y: [0, -15, 0]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {"</>"}
-            </motion.div>
-
-            <motion.div
-              className="floating-icon icon-two"
-              animate={{
-                y: [0, 15, 0]
-              }}
-              transition={{
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {"{}"}
-            </motion.div>
-
-            <motion.div
-              className="floating-icon icon-three"
-              animate={{
-                y: [0, -10, 0]
-              }}
-              transition={{
-                duration: 2.8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {"⚡"}
-            </motion.div>
-
-            <div className="center-circle">
-              <span>NT</span>
-            </div>
-
-            <div className="orbit orbit-one"></div>
-            <div className="orbit orbit-two"></div>
-
+              return (
+                <span
+                  key={index}
+                  className={`falling-flower flower-${index % 2 === 0 ? "purple" : "pink"}`}
+                  style={{
+                    left: `${(index * 37) % 101}%`,
+                    animationDelay: `${(index % 14) * 0.14}s`,
+                    animationDuration: `${2.8 + (index % 6) * 0.22}s`,
+                    fontSize: `${12 + (index % 5) * 4}px`,
+                    transform: `rotate(${(index * 29) % 360}deg)`
+                  }}
+                >
+                  {flower}
+                </span>
+              );
+            })}
           </div>
+        )}
 
-        </motion.div>
+        <div className="hero-flower-placeholder" aria-hidden="true"></div>
 
 
         {/* Scroll Indicator */}
@@ -1571,6 +1542,86 @@ function App() {
         </div>
 
       </footer>
+
+
+        <style>{`
+          .flower-shower {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 50;
+          }
+
+          .falling-flower {
+            position: absolute;
+            top: -40px;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1;
+            opacity: 0;
+            animation-name: flowerFall;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+            will-change: transform, top, opacity;
+          }
+
+          .flower-purple {
+            color: #8f6ac8;
+            text-shadow: 0 0 10px rgba(143, 106, 200, 0.18);
+          }
+
+          .flower-pink {
+            color: #e59ab8;
+            text-shadow: 0 0 10px rgba(229, 154, 184, 0.18);
+          }
+
+          @keyframes flowerFall {
+            0% {
+              top: -8vh;
+              opacity: 0;
+              transform: translate3d(0, -20px, 0) rotate(0deg);
+            }
+
+            12% {
+              opacity: 0.9;
+            }
+
+            78% {
+              opacity: 0.72;
+            }
+
+            100% {
+              top: 108vh;
+              opacity: 0;
+              transform: translate3d(35px, 0, 0) rotate(260deg);
+            }
+          }
+
+          .hero-flower-placeholder {
+            width: min(42vw, 520px);
+            height: min(42vw, 520px);
+            min-width: 320px;
+            min-height: 320px;
+          }
+
+          @media (max-width: 900px) {
+            .hero-flower-placeholder {
+              width: 320px;
+              height: 320px;
+              min-width: 280px;
+              min-height: 280px;
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .falling-flower {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+            }
+          }
+        `}</style>
 
     </div>
   );
